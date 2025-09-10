@@ -1,4 +1,5 @@
 import { _mock } from './_mock';
+
 import type { ICategory } from '../utils/types';
 
 export const CATEGORY_NAMES = [

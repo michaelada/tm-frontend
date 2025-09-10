@@ -35,7 +35,7 @@ export function Section({
   methods,
   title = '',
   imgUrl = `${CONFIG.assetsDir}/assets/illustrations/illustration-dashboard.webp`,
-  subtitle = 'Your Quality Brand House',
+  subtitle = 'Your Quality Brand House (1)',
   ...other
 }: SectionProps) {
   const theme = useTheme();
