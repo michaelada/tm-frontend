@@ -2,8 +2,10 @@ import useSWR from 'swr';
 import { useMemo } from 'react';
 
 import { fetcher, endpoints} from 'src/utils/axios';
-import type { ICart } from '../utils/types';
+
 import { useAuthContext } from '../auth/hooks';
+
+import type { ICart } from '../utils/types';
 
 // ----------------------------------------------------------------------
 
