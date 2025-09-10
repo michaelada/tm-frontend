@@ -1,4 +1,4 @@
-import { IAttributeType } from '../utils/types/product.interface';
+import type { IAttributeType } from '../utils/types/product.interface';
 
 export const ATTRIBUTE_NAMES = [
   'Box Size',

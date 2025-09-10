@@ -1,5 +1,5 @@
 import { _mock } from './_mock';
-import { ICategory } from '../utils/types';
+import type { ICategory } from '../utils/types';
 
 export const CATEGORY_NAMES = [
   'Graphite Pencils',
