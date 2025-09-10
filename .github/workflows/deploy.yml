@@ -1,4 +1,4 @@
-name: Deploy Tom Matin React App to S3 + CloudFront
+name: Deploy Tom Martin React App to S3 + CloudFront
 
 on:
   push:

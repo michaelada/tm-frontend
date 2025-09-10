@@ -1,7 +1,8 @@
 import axios, { endpoints } from 'src/utils/axios';
 
+import { setUser, setSession, setRefreshToken } from './utils';
+
 import type { IUser } from '../../../utils/types';
-import { setRefreshToken, setSession, setUser } from './utils';
 
 // ----------------------------------------------------------------------
 

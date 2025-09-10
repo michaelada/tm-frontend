@@ -46,7 +46,7 @@ export function HomeHero({ sx, ...other }: BoxProps) {
               variant="h4"
               sx={{ mt: 3, color: 'common.black', fontWeight: 'fontWeightSemiBold' }}
             >
-              Your Quality Brand House (1)
+              Your Quality Brand House
             </Typography>
           </m.div>
         </Box>

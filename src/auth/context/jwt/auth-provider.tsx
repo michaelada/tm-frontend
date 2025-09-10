@@ -2,9 +2,7 @@ import { useMemo, useEffect, useCallback } from 'react';
 
 import { useSetState } from 'src/hooks/use-set-state';
 
-import axios, { endpoints } from 'src/utils/axios';
-
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY, USER_KEY } from './constant';
+import { ACCESS_TOKEN_KEY, USER_KEY, REFRESH_TOKEN_KEY } from './constant';
 import { AuthContext } from '../auth-context';
 import { setSession, isValidToken } from './utils';
 
