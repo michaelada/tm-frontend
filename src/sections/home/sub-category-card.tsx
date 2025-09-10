@@ -1,0 +1,54 @@
+import Card from '@mui/material/Card';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import { CardContent, CardActionArea, CardMedia } from '@mui/material';
+
+import { Image } from 'src/components/image';
+
+import { paths } from '../../routes/paths';
+import { useRouter } from '../../routes/hooks';
+
+import type { ICategory } from '../../utils/types';
+
+type Props = {
+  category: ICategory;
+  setSelectedCategory: (
+    value: ((prevState: ICategory | undefined) => ICategory | undefined) | ICategory | undefined
+  ) => void;
+};
+
+export function SubCategoryCard({ category, setSelectedCategory }: Props) {
+  const router = useRouter();
+  const { id, name, image } = category;
+
+  const linkTo = `${paths.product.root}?categoryId=${id}`;
+
+  const goToCategory = () => {
+    router.push(linkTo);
+  };
+
+  const selectCategory = () => {
+    setSelectedCategory(undefined);
+  }
+
+  const renderImg = <Image alt={name} src={image} ratio="1/1" sx={{ borderRadius: 1.5 }} />;
+
+  return (
+    <Card onClick={selectCategory}>
+      <CardActionArea>
+        <CardContent>
+        <Typography variant="h6" component="div"  align='center'>
+            Click here to go back
+          </Typography>
+          <CardMedia>
+            {renderImg}
+          </CardMedia>
+          <Typography variant="h4" component="div" align='center'>
+            {category.name}
+          </Typography>
+        </CardContent>
+
+      </CardActionArea>
+    </Card>
+  );
+}
