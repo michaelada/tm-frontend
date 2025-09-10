@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 
 import { fetcher, endpoints } from 'src/utils/axios';
 
-import type { ICategory, IProduct, ICustomer, IProductCategory, IProductGroup, IProductImage } from '../utils/types';
+import type { IProduct, ICategory, ICustomer,  IProductGroup, IProductImage, IProductCategory } from '../utils/types';
 
 // ----------------------------------------------------------------------
 

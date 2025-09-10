@@ -69,12 +69,12 @@ export function JwtSignInView() {
       await checkUserSession?.();
 
       const userJson = localStorage.getItem(USER_KEY);
-      let path = "/";
+      const path = "/";
       if(userJson) {
         const u = JSON.parse(userJson);
-        if(u.isAdmin) {
-          path = "/admin";
-        }
+        // if(u.isAdmin) {
+        //   path = "/admin";
+        // }
       }
 
       router.replace(path);

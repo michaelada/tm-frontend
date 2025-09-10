@@ -2,8 +2,9 @@ import { paths } from 'src/routes/paths';
 
 import axios from 'src/utils/axios';
 
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY, USER_KEY } from './constant';
-import { IUser } from '../../../utils/types';
+import type { IUser } from '../../../utils/types';
+
+import { ACCESS_TOKEN_KEY, USER_KEY, REFRESH_TOKEN_KEY } from './constant';
 
 // ----------------------------------------------------------------------
 

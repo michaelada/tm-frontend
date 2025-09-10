@@ -2,8 +2,10 @@ import { useMemo, useEffect, useCallback } from 'react';
 
 import { useSetState } from 'src/hooks/use-set-state';
 
-import { ACCESS_TOKEN_KEY, USER_KEY, REFRESH_TOKEN_KEY } from './constant';
 import { AuthContext } from '../auth-context';
+
+import { USER_KEY, ACCESS_TOKEN_KEY } from './constant';
+
 import { setSession, isValidToken } from './utils';
 
 import type { AuthState } from '../../types';
@@ -29,7 +31,7 @@ export function AuthProvider({ children }: Props) {
   const checkUserSession = useCallback(async () => {
     try {
       const accessToken = localStorage.getItem(ACCESS_TOKEN_KEY);
-      const refreshToken = localStorage.getItem(REFRESH_TOKEN_KEY);
+      // const refreshToken = localStorage.getItem(REFRESH_TOKEN_KEY);
       const userJson = localStorage.getItem(USER_KEY);
 
       if (accessToken && isValidToken(accessToken)) {
