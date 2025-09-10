@@ -1,10 +1,11 @@
+import type { IProductFilters } from 'src/utils/types';
+import type { UseSetStateReturn } from 'src/hooks/use-set-state';
+
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import { Iconify } from 'src/components/iconify';
-import { IProductFilters } from 'src/utils/types';
-import { UseSetStateReturn } from 'src/hooks/use-set-state';
 
 // ----------------------------------------------------------------------
 

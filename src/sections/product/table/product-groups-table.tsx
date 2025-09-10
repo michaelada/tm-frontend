@@ -1,46 +1,47 @@
-import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useState, useCallback } from 'react';
 
-import LoadingButton from '@mui/lab/LoadingButton';
-import { Button, CircularProgress } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
-import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Table from '@mui/material/Table';
+import Avatar from '@mui/material/Avatar';
+import Collapse from '@mui/material/Collapse';
+import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import IconButton from '@mui/material/IconButton';
+import LoadingButton from '@mui/lab/LoadingButton';
+import ListItemText from '@mui/material/ListItemText';
+import { Button, CircularProgress } from '@mui/material';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 
-import { Iconify } from 'src/components/iconify';
+import { validateQuantity } from 'src/utils/helper';
+
 import Notify from 'src/components/notify';
+import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
 
-import { validateQuantity } from 'src/utils/helper';
-import { useGetProductGroup, useGetProductPrice } from '../../../actions/product';
-import {
-  emptyRows,
-  TableEmptyRows,
-  TableNoData,
-  TablePaginationCustom,
-  TableSkeleton,
-  useTable,
-} from '../../../components/table';
-import { useRouter } from '../../../routes/hooks';
 import { paths } from '../../../routes/paths';
+import { useRouter } from '../../../routes/hooks';
+import { useCartContext } from '../../cart/context';
+import ProductQuantity from '../components/quantity';
 import axios, { endpoints } from '../../../utils/axios';
 import { fCurrency } from '../../../utils/format-number';
-import { useCartContext } from '../../cart/context';
+import { useGetProductGroup, useGetProductPrice } from '../../../actions/product';
+import {
+  useTable,
+  emptyRows,
+  TableNoData,
+  TableSkeleton,
+  TableEmptyRows,
+  TablePaginationCustom,
+} from '../../../components/table';
 
 import type { IProduct, IProductGroup } from '../../../utils/types';
-import ProductQuantity from '../components/quantity';
 
 type CollapsibleProductGroupTableProps = {
   productGroups: IProductGroup[];
@@ -116,7 +117,7 @@ type ProductGroupTableRowProps = {
 function ProductGroupTableRow({ row, dense, initialState }: ProductGroupTableRowProps) {
   const collapsible = useBoolean(initialState);
   const [count, setCount] = useState(DEFAULT_COUNT);
-  const { productGroup, productGroupLoading } = useGetProductGroup(
+  const { productGroup } = useGetProductGroup(
     collapsible.value ? `${row.id}` : ''
   );
 
@@ -235,7 +236,7 @@ function ProductTableRow({ row }: ProductTableRowProps) {
 
   const methods = useForm({ defaultValues });
 
-  const { reset, watch, control, setValue, handleSubmit } = methods;
+  const { watch, setValue } = methods;
 
   const values = watch();
 

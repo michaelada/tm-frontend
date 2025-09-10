@@ -1,13 +1,17 @@
-import { Helmet } from 'react-helmet-async';
-import { useParams, useRouter } from 'src/routes/hooks';
 import { useState } from 'react';
+import { useSnackbar } from 'notistack';
+import { Helmet } from 'react-helmet-async';
+
+import { Box, Alert } from '@mui/material';
+
+import { adminpaths } from 'src/routes/adminpaths';
+import { useParams, useRouter } from 'src/routes/hooks';
+
 import axios, { endpoints } from 'src/utils/axios';
 
 import { useGetCategory } from 'src/actions/product';
+
 import { DeleteConfirmation } from 'src/sections/admin/shared/delete-confirmation';
-import { useSnackbar } from 'notistack';
-import { Alert, Box } from '@mui/material';
-import { adminpaths } from 'src/routes/adminpaths';
 
 // ----------------------------------------------------------------------
 
@@ -20,7 +24,7 @@ export default function Page() {
 
   const { id = '' } = useParams();
 
-  const { category, categoryLoading, categoryError } = useGetCategory(id);
+  const { category, categoryLoading } = useGetCategory(id);
 
   const onDelete = () => {
       axios.delete(endpoints.category.details(`${category?.id}`)).then(response => {

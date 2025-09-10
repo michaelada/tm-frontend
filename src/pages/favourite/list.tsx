@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+
 import { FavouritesListView } from '../../sections/favourite/view';
 
 // ----------------------------------------------------------------------

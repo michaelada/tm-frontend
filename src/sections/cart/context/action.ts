@@ -1,5 +1,6 @@
 import axios, { endpoints } from '../../../utils/axios';
-import { ICartItem } from '../../../utils/types';
+
+import type { ICartItem } from '../../../utils/types';
 
 /** **************************************
  * Add to Cart
@@ -41,7 +42,7 @@ export interface RemoveFromCartResponse {}
 export const removeFromCart = async ({ cartItemId,
 }: RemoveFromCartParams): Promise<void> => {
   try {
-    const res = await axios.delete<RemoveFromCartResponse>(endpoints.cart.delete(cartItemId));
+    await axios.delete<RemoveFromCartResponse>(endpoints.cart.delete(cartItemId));
   } catch (error) {
     console.error('Error during remove from cart:', error);
     throw error;

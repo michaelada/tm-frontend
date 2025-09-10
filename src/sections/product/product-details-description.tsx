@@ -1,6 +1,8 @@
-import { Box } from '@mui/material';
-import type { SxProps, Theme } from '@mui/material/styles';
+import type { Theme, SxProps } from '@mui/material/styles';
+
 import Markdown from 'react-markdown';
+
+import { Box } from '@mui/material';
 
 // ----------------------------------------------------------------------
 

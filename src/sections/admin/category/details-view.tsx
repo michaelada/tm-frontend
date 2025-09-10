@@ -1,23 +1,14 @@
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
-import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
-import { Box } from '@mui/material';
 
-import { adminpaths as paths } from 'src/routes/adminpaths';
 import { RouterLink } from 'src/routes/components';
+import { adminpaths as paths } from 'src/routes/adminpaths';
 
-import { useTabs } from 'src/hooks/use-tabs';
-
-import { varAlpha } from 'src/theme/styles';
-
-import { useGetCategoryProducts } from 'src/actions/product';
 import { Iconify } from 'src/components/iconify';
 import { EmptyContent } from 'src/components/empty-content';
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
-import { ICategory } from '../../../utils/types';
+
+import type { ICategory } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 
@@ -28,10 +19,6 @@ type Props = {
 };
 
 export function AdminCategoryDetailsView({ category, error, loading }: Props) {
-  const tabs = useTabs('description');
-
-  const { products, productsLoading } = useGetCategoryProducts(`${category?.id}`);
-
 
   if (loading) {
     return (

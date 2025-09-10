@@ -1,19 +1,21 @@
-import Button from '@mui/material/Button';
+import type { IOrder } from 'src/utils/types';
+
 import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
-import { useRouter } from 'src/routes/hooks';
+import { Stack, Table, Divider, TableRow, TableBody, TableCell, TableHead, Typography, CardContent, TableContainer } from '@mui/material';
 
-import { adminpaths as paths } from 'src/routes/adminpaths';
 import { RouterLink } from 'src/routes/components';
+import { adminpaths as paths } from 'src/routes/adminpaths';
 
-import { CardContent, Divider, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
-import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
-import { EmptyContent } from 'src/components/empty-content';
-import { Iconify } from 'src/components/iconify';
-import { LoadingScreen } from 'src/components/loading-screen';
 import { fDateTime } from 'src/utils/format-time';
-import { IOrder } from 'src/utils/types';
+
+import { Iconify } from 'src/components/iconify';
+import { EmptyContent } from 'src/components/empty-content';
+import { LoadingScreen } from 'src/components/loading-screen';
+import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
+
 import Field from '../../shared/field';
 
 // ----------------------------------------------------------------------
@@ -25,7 +27,6 @@ type Props = {
 };
 
 export function AdminOrderDetailsView({ order, error, loading }: Props) {
-  const router = useRouter();
 
   if (loading) {
     return (
@@ -58,7 +59,6 @@ export function AdminOrderDetailsView({ order, error, loading }: Props) {
   }
   const getSubTotal = () => order?.lineItems.reduce((a, b) => a + parseFloat(`${b.lineItemValue}`), 0) || 0;
 
-  const getPrice = (unitPrice: number, quantity: string) => (parseInt(quantity, 10) * unitPrice).toFixed(2);
   const fCurrency = (total: number) => {
     total = (Math.round(total * 100) / 100);
     return total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");

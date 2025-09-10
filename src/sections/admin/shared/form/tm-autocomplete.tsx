@@ -1,8 +1,10 @@
 // form
-import { useFormContext, Controller } from 'react-hook-form';
+import type { ReactNode } from 'react';
+
+import { Controller, useFormContext } from 'react-hook-form';
+
 // @mui
-import { Autocomplete, TextField } from '@mui/material';
-import { ReactNode } from 'react';
+import { TextField, Autocomplete } from '@mui/material';
 
 // ----------------------------------------------------------------------
 

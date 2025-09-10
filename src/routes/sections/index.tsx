@@ -2,11 +2,10 @@ import { Navigate, useRoutes } from 'react-router-dom';
 
 import { CONFIG } from 'src/config-global';
 
-import { useAuthContext } from 'src/auth/hooks';
 import { authRoutes } from './auth';
 import { mainRoutes } from './main';
-import { dashboardRoutes } from './dashboard';
 import { adminRoutes } from './admin';
+import { dashboardRoutes } from './dashboard';
 
 // ----------------------------------------------------------------------
 

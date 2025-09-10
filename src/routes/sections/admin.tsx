@@ -18,7 +18,6 @@ const IndexPage = lazy(() => import('src/pages/home/adminhome'));
 const AdminProductListPage = lazy(() => import('src/pages/admin/product/list'));
 const AdminProductDetailsPage = lazy(() => import('src/pages/admin/product/details'));
 const UnassignedListPage = lazy(() => import('src/pages/admin/unsassigned/list'));
-const UnassignedDetailsPage = lazy(() => import('src/pages/admin/unsassigned/details'));
 const GroupListPage = lazy(() => import('src/pages/admin/group/list'));
 const GroupDetailsPage = lazy(() => import('src/pages/admin/group/details'));
 const CustomerListPage = lazy(() => import('src/pages/admin/customer/list'));
@@ -40,12 +39,10 @@ const ReissueOrderPage = lazy(() => import('src/pages/admin/orders/reissue'));
 // ----------------------------------------------------------------------
 
 // Favourite
-const FavouritesListPage = lazy(() => import('src/pages/favourite/list'));
 
 // ----------------------------------------------------------------------
 
 // Cart
-const Cart = lazy(() => import('src/pages/cart/cart'));
 const AdminOrders = lazy(() => import('src/pages/admin/orders/orders'));
 const AdminOrderDetails = lazy(() => import('src/pages/admin/orders/details'));
 

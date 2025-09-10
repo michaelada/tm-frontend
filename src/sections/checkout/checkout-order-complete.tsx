@@ -1,13 +1,10 @@
 import type { DialogProps } from '@mui/material/Dialog';
 
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-
-import { OrderCompleteIllustration } from 'src/assets/illustrations';
 
 import { Iconify } from 'src/components/iconify';
 
@@ -45,8 +42,6 @@ export function CheckoutOrderComplete({ open, onReset, onDownloadPDF }: Props) {
         }}
       >
         <Typography variant="h4">Your order has been submitted!</Typography>
-
-        {/* <OrderCompleteIllustration /> */}
 
         <Typography>
           Thank you for placing order

@@ -3,11 +3,11 @@ import { Outlet } from 'react-router-dom';
 
 import { CONFIG } from 'src/config-global';
 import { DashboardLayout } from 'src/layouts/dashboard';
+import OrderDetailsPage from 'src/pages/orders/details';
 
 import { LoadingScreen } from 'src/components/loading-screen';
 
 import { AuthGuard } from 'src/auth/guard';
-import OrderDetailsPage from 'src/pages/orders/details';
 
 // ----------------------------------------------------------------------
 

@@ -1,11 +1,14 @@
+import { useSnackbar } from 'notistack';
 import { Helmet } from 'react-helmet-async';
+
+import { adminpaths } from 'src/routes/adminpaths';
 import { useParams, useRouter } from 'src/routes/hooks';
 
 import axios, { endpoints } from 'src/utils/axios';
+
 import { useGetProductGroup } from 'src/actions/product';
+
 import { DeleteConfirmation } from 'src/sections/admin/shared/delete-confirmation';
-import { useSnackbar } from 'notistack';
-import { adminpaths } from 'src/routes/adminpaths';
 
 // ----------------------------------------------------------------------
 
@@ -17,7 +20,7 @@ export default function Page() {
 
   const { id = '' } = useParams();
 
-  const { productGroup, productGroupLoading, productGroupError } = useGetProductGroup(id);
+  const { productGroup, productGroupLoading } = useGetProductGroup(id);
 
   const onDelete = () => {
     axios.delete(endpoints.admin.group.delete(`${productGroup?.id}`)).then(response => {
@@ -28,9 +31,6 @@ export default function Page() {
         enqueueSnackbar(`Problem deleting product group : ${err}`, { variant: 'error' });
       });
   }
-  //   enqueueSnackbar('Product Group has been deleted', { variant: 'success'});
-  //   router.replace(adminpaths.dashboard.group.root);
-  // }
 
   return (
     <>

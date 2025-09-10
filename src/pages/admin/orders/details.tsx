@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async';
-import { useLocation } from 'react-router-dom';
 
 import { useParams } from 'src/routes/hooks';
 
 import { CONFIG } from 'src/config-global';
 import { useGetOrder } from 'src/actions/order';
+
 import { AdminOrderDetailsView } from 'src/sections/orders/view/admin-order-details-view';
 
 
@@ -13,7 +13,7 @@ import { AdminOrderDetailsView } from 'src/sections/orders/view/admin-order-deta
 const metadata = { title: `Product details - ${CONFIG.appName}` };
 
 export default function AdminOrderDetailsPage() {
-  const { id = '', type = 'web' } = useParams();
+  const { id = '' } = useParams();
 
   const { order, orderLoading, orderError } = useGetOrder(id);
 
@@ -26,8 +26,5 @@ export default function AdminOrderDetailsPage() {
       <AdminOrderDetailsView order={order} loading={orderLoading} error={orderError} />
     </>
   );
-}
-function useQuery(): { id?: "" | undefined; type: any; } {
-  throw new Error('Function not implemented.');
 }
 

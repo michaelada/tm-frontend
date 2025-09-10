@@ -1,4 +1,4 @@
-import { ICart, IProduct } from '../utils/types';
+import type { ICart, IProduct } from '../utils/types';
 
 // ----------------------------------------------------------------------
 

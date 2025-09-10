@@ -1,12 +1,10 @@
-import { useCallback, useEffect, useMemo } from 'react';
+import { useMemo,  useEffect, useCallback } from 'react';
 
 import { useSetState } from 'src/hooks/use-set-state';
 
 import { AuthContext } from '../auth-context';
-
-import { isValidToken, setSession } from './utils';
-
-import { ACCESS_TOKEN_KEY, USER_KEY } from './constant';
+import { setSession, isValidToken } from './utils';
+import { USER_KEY, ACCESS_TOKEN_KEY } from './constant';
 
 import type { AuthState } from '../../types';
 

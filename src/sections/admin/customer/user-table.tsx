@@ -1,26 +1,30 @@
-import { Button, Chip, Stack } from '@mui/material';
+import { useCallback } from 'react';
+
 import Table from '@mui/material/Table';
+import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import { useCallback } from 'react';
-import { impersonate } from 'src/auth/context/jwt/action';
+import { Chip, Stack, Button } from '@mui/material';
+
+import { RouterLink } from 'src/routes/components';
+
 import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
-import { RouterLink } from 'src/routes/components';
-import { adminpaths } from '../../../routes/adminpaths';
-import { paths } from '../../../routes/paths';
 
-import {
-  emptyRows,
-  TableEmptyRows,
-  TableNoData,
-  TablePaginationCustom,
-  TableSkeleton,
-  useTable,
-} from '../../../components/table';
+import { impersonate } from 'src/auth/context/jwt/action';
+
+import { paths } from '../../../routes/paths';
 import { useRouter } from '../../../routes/hooks';
+import { adminpaths } from '../../../routes/adminpaths';
+import {
+  useTable,
+  emptyRows,
+  TableNoData,
+  TableSkeleton,
+  TableEmptyRows,
+  TablePaginationCustom,
+} from '../../../components/table';
 
 import type { IUser } from '../../../utils/types';
 

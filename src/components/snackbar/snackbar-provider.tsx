@@ -1,5 +1,8 @@
-import { Alert, AlertColor, Snackbar } from '@mui/material';
-import { createContext, useContext, useMemo, useState } from 'react';
+import type { AlertColor } from '@mui/material';
+
+import { useMemo, useState, useContext, createContext } from 'react';
+
+import { Alert, Snackbar } from '@mui/material';
 
 class Snack {
     message?: string;
@@ -32,7 +35,6 @@ export type SnackDefaultValue = {
     setSnack: React.Dispatch<React.SetStateAction<Snack>>;
 };
 
-// export const SnackbarContext = createContext<SnackbarContextValue | undefined>(undefined);
 export const SnackbarContext = createContext<SnackDefaultValue>({ snack: new Snack({ open: false }), setSnack: () => { } });
 
 type Props = {
@@ -43,14 +45,6 @@ export const useSnackbar = () => useContext(SnackbarContext);
 
 export function SnackboxProvider({ children }: Props) {
     const [snack, setSnack] = useState(new Snack({ open: false }));
-
-    // const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-    //     if (reason === 'clickaway') {
-    //         return;
-    //     }
-    // }
-
-    // setSnack(new Snack({ color: snack.color, open: false }));
 
       const memoizedValue = useMemo(
         () => ({
@@ -70,26 +64,4 @@ export function SnackboxProvider({ children }: Props) {
             </Snackbar>
         </SnackbarContext.Provider>
     );
-    // const { state, setState } = useSetState<ISnack>({
-    //     message: '',
-    //     color: '',
-    //     open: false,
-    // });
-
-
-    // const setSnack = useCallback((newsnack: ISnack) => {
-    //     setState(newsnack);
-    // }, [setState]);
-
-  
-    // return (
-    //     <SnackbarContext.Provider value={memoizedValue}>
-    //         <Snackbar open={state.open}>
-    //             <Alert>
-    //                 {state.message}
-    //             </Alert>
-    //         </Snackbar>
-    //         {children}
-    //     </SnackbarContext.Provider>
-    // )
 }

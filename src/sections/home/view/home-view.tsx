@@ -1,6 +1,7 @@
 // ----------------------------------------------------------------------
 
 import Divider from '@mui/material/Divider';
+
 import { HomeHero } from '../home-hero';
 import { HomeCategories } from '../home-categories';
 import { DashboardContent } from '../../../layouts/dashboard';

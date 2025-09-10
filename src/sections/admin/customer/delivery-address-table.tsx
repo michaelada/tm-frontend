@@ -1,12 +1,13 @@
-import { Button, Link, ListItemText, Tab } from '@mui/material';
+import type { IDeliveryAddress } from 'src/utils/types';
+
 import Table from '@mui/material/Table';
 import TableRow from '@mui/material/TableRow';
 import TableHead from '@mui/material/TableHead';
 import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
+
 import { Scrollbar } from 'src/components/scrollbar';
-import { IDeliveryAddress } from 'src/utils/types';
-import { useRouter } from '../../../routes/hooks';
+
 import {
   useTable,
   emptyRows,
@@ -78,7 +79,6 @@ type AddressTableRowProps = {
 };
 
 function AddressTableRow({ row }: AddressTableRowProps) {
-  const router = useRouter();
 
   return (
     <TableRow hover>

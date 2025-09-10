@@ -2,11 +2,11 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
 import { CardContent } from '@mui/material';
+import Container from '@mui/material/Container';
 
-import { adminpaths as paths } from 'src/routes/adminpaths';
 import { RouterLink } from 'src/routes/components';
+import { adminpaths as paths } from 'src/routes/adminpaths';
 
 import { useTabs } from 'src/hooks/use-tabs';
 
@@ -15,10 +15,12 @@ import { varAlpha } from 'src/theme/styles';
 import { Iconify } from 'src/components/iconify';
 import { EmptyContent } from 'src/components/empty-content';
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
-import { ICustomer } from '../../../utils/types';
-import { CustomerContactDetails } from './customer-contact-details';
+
 import { UserTable } from './user-table';
 import { DeliveryAddressTable } from './delivery-address-table';
+import { CustomerContactDetails } from './customer-contact-details';
+
+import type { ICustomer } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 

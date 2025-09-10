@@ -1,13 +1,17 @@
 import type { BoxProps } from '@mui/material/Box';
-import Box from '@mui/material/Box';
+
 import { useState } from 'react';
+
+import Box from '@mui/material/Box';
+
+import { CategoryCard } from './category-card';
+import { SelectedCategory } from './selected-category';
 import { useGetCategories } from '../../actions/category';
 import { ProductGroupSkeleton } from '../product/product-skeleton';
-import { CategoryCard } from './category-card';
-import { ICategory } from '../../utils/types';
-import { SelectedCategory } from './selected-category';
 
-export function HomeCategories({ sx, ...other }: BoxProps) {
+import type { ICategory } from '../../utils/types';
+
+export function HomeCategories({ sx }: BoxProps) {
   const { categories, categoriesLoading } = useGetCategories();
 
   const [selectedCategory, setSelectedCategory]  = useState<ICategory>();

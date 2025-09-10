@@ -1,7 +1,9 @@
+import type { AlertColor } from '@mui/material';
+import type { SnackbarCloseReason } from '@mui/material/Snackbar';
+
 import * as React from 'react';
-import Snackbar, { SnackbarCloseReason } from '@mui/material/Snackbar';
-import { Alert, AlertColor, Fade } from '@mui/material';
-import { TransitionProps } from '@mui/material/transitions';
+
+import { Fade, Alert, Snackbar } from '@mui/material';
 
 type NotifyProps = {
     notification: string | undefined;

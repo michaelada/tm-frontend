@@ -1,21 +1,22 @@
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
+import type { IOrder, IOrderItem } from 'src/utils/types';
+
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
-import { useRouter } from 'src/routes/hooks';
+import { Link, Stack, Table, Divider, TableRow, TableBody, TableCell, TableHead, Typography, CardContent, ListItemText, TableContainer } from '@mui/material';
 
 import { paths } from 'src/routes/paths';
+import { useRouter } from 'src/routes/hooks';
 import { RouterLink } from 'src/routes/components';
+
+import { fDateTime } from 'src/utils/format-time';
 
 import { Iconify } from 'src/components/iconify';
 import { EmptyContent } from 'src/components/empty-content';
-import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
-import { IOrder, IOrderItem } from 'src/utils/types';
 import { LoadingScreen } from 'src/components/loading-screen';
-import { CardContent, Divider, Link, ListItemText, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
-import { fDateTime } from 'src/utils/format-time';
+import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
+
 import Field from '../../shared/field';
 
 // ----------------------------------------------------------------------
@@ -60,7 +61,6 @@ export function OrderDetailsView({ order, error, loading }: Props) {
   }  
   const getSubTotal = () => order?.lineItems.reduce((a,b) => a + parseFloat(`${b.lineItemValue}`), 0) || 0;  
 
-  const getPrice = (unitPrice: number, quantity: string) => (parseInt(quantity, 10) * unitPrice).toFixed(2);
   const fCurrency = (total: number) => {
     total = (Math.round(total * 100) / 100);
     return total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");

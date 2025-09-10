@@ -1,13 +1,12 @@
-import type { DialogProps } from '@mui/material/Dialog';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Card, CardContent, CardHeader, Grid, Stack, TextField } from '@mui/material';
+import { Card, Grid, Stack, TextField, CardHeader, CardContent } from '@mui/material';
+
 import { Iconify } from 'src/components/iconify';
 
 import { useCartContext } from '../cart/context';
-
 import { CheckoutSummary } from './checkout-summary';
 
 // ----------------------------------------------------------------------

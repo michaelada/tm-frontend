@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
@@ -23,16 +23,6 @@ export function AuthGuard({ children }: Props) {
   const { authenticated, loading } = useAuthContext();
 
   const [isChecking, setIsChecking] = useState<boolean>(true);
-
-  // const createQueryString = useCallback(
-  //   (name: string, value: string) => {
-  //     const params = new URLSearchParams(searchParams.toString());
-  //     params.set(name, value);
-
-  //     return params.toString();
-  //   },
-  //   [searchParams]
-  // );
 
   const checkPermissions = async (): Promise<void> => {
     if (loading) {

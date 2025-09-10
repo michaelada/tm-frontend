@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+
 import { useGetFavourites } from '../../actions/favourite';
 
 // material
@@ -14,6 +15,7 @@ export default function FavouriteSize() {
             <Box color="error"> ({productGroups.length})</Box>
         )
     }
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <></>;
 
 }

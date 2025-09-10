@@ -1,19 +1,16 @@
-import { useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 import { DashboardContent } from 'src/layouts/dashboard';
-import { useGetNewInProducts, useSearchProductGroups } from 'src/actions/product';
+import { useGetNewInProducts } from 'src/actions/product';
 
-import { useRouter } from '../../../routes/hooks';
 import { ProductCard } from '../../product/product-card';
 import { ProductGroupSkeleton } from '../../product/product-skeleton';
 
 // ----------------------------------------------------------------------
 
 export function NewInView() {
-  const router = useRouter();
 
   const { products, productsLoading } = useGetNewInProducts();
 
@@ -28,8 +25,7 @@ export function NewInView() {
   );
 
   return (
-    <>
-      <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+    <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
           New In
         </Typography>
@@ -47,6 +43,5 @@ export function NewInView() {
           {productsLoading ? renderLoading : renderList}
         </Box>
       </DashboardContent>
-    </>
   );
 }

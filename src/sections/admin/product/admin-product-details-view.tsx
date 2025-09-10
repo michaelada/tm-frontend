@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'src/routes/hooks';
+
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 
-import { adminpaths as paths } from 'src/routes/adminpaths';
 import { RouterLink } from 'src/routes/components';
+import { useSearchParams } from 'src/routes/hooks';
+import { adminpaths as paths } from 'src/routes/adminpaths';
 
 import { useTabs } from 'src/hooks/use-tabs';
 
@@ -16,11 +16,14 @@ import { varAlpha } from 'src/theme/styles';
 import { Iconify } from 'src/components/iconify';
 import { EmptyContent } from 'src/components/empty-content';
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
+
 import { ProductDetailsSkeleton } from 'src/sections/product/product-skeleton';
-import { AdminProductDetails } from './admin-product-details';
-import { IProduct } from '../../../utils/types';
-import { AdminProductCategories } from './admin-product-categories';
+
 import { AdminProductImages } from './admin-product-images';
+import { AdminProductDetails } from './admin-product-details';
+import { AdminProductCategories } from './admin-product-categories';
+
+import type { IProduct } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 
@@ -31,16 +34,9 @@ type Props = {
 };
 
 export function AdminProductDetailsView({ product, error, loading }: Props) {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const tabs = useTabs(searchParams.get('tab') ?? 'details');
   
-  // useEffect(() => {
-  //   const queryParams = new URLSearchParams({ tab: tabs.value });
-  //   router.replace(`${paths.dashboard.product.details(`${pid}`)}?${queryParams}`);
-
-  // }, [tabs, router, pid]);
-
   if (loading) {
     return (
       <Container sx={{ mt: 5, mb: 10 }}>

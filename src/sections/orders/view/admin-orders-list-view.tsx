@@ -1,31 +1,28 @@
-import { SetStateAction, useEffect, useState } from 'react';
+import type { IOrder } from 'src/utils/types';
 
+import { useState, useEffect } from 'react';
+
+import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import { Alert, CardHeader, Tab, Tabs, useTheme } from '@mui/material';
-import Card from '@mui/material/Card';
+import { Alert, CardHeader } from '@mui/material';
 
 import { DashboardContent } from 'src/layouts/dashboard';
-import { IOrder } from 'src/utils/types';
+
 import { LoadingScreen } from 'src/components/loading-screen';
 
-import { Label } from 'src/components/label/label';
-
+import axios, { endpoints } from '../../../utils/axios';
+import { AdminOrderRow } from '../admin-order-table-row';
 import { Scrollbar } from '../../../components/scrollbar';
-import { OrderRow } from '../order-table-row';
-import { LabelColor } from '../../../components/label/types';
-
 import {
+  useTable,
   emptyRows,
+  TableNoData,
   getComparator,
   TableEmptyRows,
   TableHeadCustom,
-  TableNoData,
   TablePaginationCustom,
-  useTable,
 } from '../../../components/table';
-import axios, { endpoints } from '../../../utils/axios';
-import { AdminOrderRow } from '../admin-order-table-row';
 
 const TABLE_HEAD = [
   { id: 'id', label: 'Order', align: 'left' },
@@ -47,7 +44,9 @@ export function AdminOrdersListView() {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [filterName, setFilterName] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [filterStatus, setFilterStatus] = useState('all');
 
   const {
@@ -56,11 +55,9 @@ export function AdminOrdersListView() {
     order,
     orderBy,
     rowsPerPage,
-    setPage,
     //
     selected,
     //
-    onSort,
     onChangeDense,
     onChangePage,
     onChangeRowsPerPage,
@@ -69,13 +66,6 @@ export function AdminOrdersListView() {
   useEffect(() => {
     getData();
   }, []);
-
-  const isFiltered = filterStatus !== 'all' || filterName !== '';
-
-  const handleFilterStatus = (event: any, newValue: string) => {
-    setPage(0);
-    setFilterStatus(newValue);
-  };
 
 
   const dataFiltered = applyFilter({
@@ -88,17 +78,6 @@ export function AdminOrdersListView() {
   const isNotFound =
     (!dataFiltered.length && !!filterName) ||
     (!dataFiltered.length && !!filterStatus);
-
-  const handleFilterName = (event: { target: { value: SetStateAction<string>; }; }) => {
-    setPage(0);
-    setFilterName(event.target.value);
-  };
-
-  const handleResetFilter = () => {
-    setPage(0);
-    setFilterName('');
-    setFilterStatus('all');
-  };
 
   async function getData() {
     setLoading(true);

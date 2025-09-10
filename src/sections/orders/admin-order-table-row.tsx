@@ -1,15 +1,15 @@
-import { useForm } from 'react-hook-form';
 
 import Link from '@mui/material/Link';
+import { Button } from '@mui/material';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
-import { Button, Chip } from '@mui/material';
 import ListItemText from '@mui/material/ListItemText';
+
 import { fDateTime } from 'src/utils/format-time';
 
-import { adminpaths as paths } from '../../routes/adminpaths';
 import { useRouter } from '../../routes/hooks';
 import { Iconify } from '../../components/iconify';
+import { adminpaths as paths } from '../../routes/adminpaths';
 
 import type { IOrder } from '../../utils/types';
 
@@ -23,14 +23,6 @@ export function AdminOrderRow({ row }: OrderRowProps) {
   const openOrderDetail = () => {
     router.push(paths.dashboard.order.details(`${row.id}`));
   };
-
-  const defaultValues = row;
-
-  const methods = useForm({ defaultValues });
-
-  const { reset, watch, control, setValue, handleSubmit } = methods;
-
-  const values = watch();
 
   return (
     <TableRow key={row.id}>

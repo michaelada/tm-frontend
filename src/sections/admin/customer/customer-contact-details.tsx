@@ -1,7 +1,7 @@
-import { useRouter } from 'src/routes/hooks';
+import type { ICustomer } from 'src/utils/types';
 
-import { ICustomer } from 'src/utils/types';
-import { Divider, Box, Stack } from '@mui/material';
+import { Box, Stack, Divider } from '@mui/material';
+
 import Field from '../../shared/field';
 
 // ----------------------------------------------------------------------
@@ -11,9 +11,6 @@ type Props = {
 };
 
 export function CustomerContactDetails({ customer }: Props) {
-  const router = useRouter();
-
-
   return (
           <Box sx={{p:2}}><Stack direction="column" spacing={0} >
             <Field name="EMail" value={customer?.email} horizontal/>

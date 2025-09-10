@@ -1,7 +1,9 @@
 
 // ----------------------------------------------------------------------
 
-import Paper, { PaperProps } from '@mui/material/Paper';
+import type { PaperProps } from '@mui/material/Paper';
+
+import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Skeleton from '@mui/material/Skeleton';
 

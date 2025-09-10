@@ -1,11 +1,15 @@
 import { useState } from 'react';
+import { useSnackbar } from 'notistack';
 import { Helmet } from 'react-helmet-async';
+
+import { Box, Alert } from '@mui/material';
+
 import { useParams, useRouter } from 'src/routes/hooks';
+
 import axios, { endpoints } from 'src/utils/axios';
+
 import { useGetCategory } from 'src/actions/product';
 
-import { Alert, Box } from '@mui/material';
-import { useSnackbar } from 'notistack';
 import { AddCategory } from 'src/sections/admin/category/add-category';
 
 // ----------------------------------------------------------------------
@@ -18,7 +22,7 @@ export default function Page() {
   const [error, setError] = useState('');
   const { id = '' } = useParams();
 
-  const { category, categoryLoading, categoryError } = useGetCategory(id);
+  const { category } = useGetCategory(id);
 
   const onConfirm = (name: string) => {
     axios.post(endpoints.admin.category.add(id), { name }).then(response => {

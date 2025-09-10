@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+
 import { NewInView } from '../../sections/new-in/view/new-in-view';
 
 // ----------------------------------------------------------------------

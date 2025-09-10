@@ -1,16 +1,22 @@
-import { useEffect, useState } from 'react';
-import { useSetState } from 'src/hooks/use-set-state';
-import { useDebounce } from 'src/hooks/use-debounce';
-import { Card, Typography, CardActions, Button, CardContent, Container, Alert } from '@mui/material';
-import { Iconify } from 'src/components/iconify';
+import type { IProduct, ICategoryFilters } from 'src/utils/types';
+
 import { useSnackbar } from 'notistack';
-import { ICategoryFilters, IProduct } from 'src/utils/types';
-import { useSearchCategoryChildren } from 'src/actions/product';
-import axios, { endpoints } from 'src/utils/axios';
+import { useState, useEffect } from 'react';
+
+import { Card, Alert, Container, Typography, CardContent } from '@mui/material';
+
 import { useRouter, useSearchParams } from 'src/routes/hooks';
-import { adminpaths as paths } from '../../../routes/adminpaths';
-import { CategoryToolbar } from '../category/category-toolbar';
+
+import { useDebounce } from 'src/hooks/use-debounce';
+import { useSetState } from 'src/hooks/use-set-state';
+
+import axios, { endpoints } from 'src/utils/axios';
+
+import { useSearchCategoryChildren } from 'src/actions/product';
+
 import { CategoryTable } from '../category/category-table';
+import { CategoryToolbar } from '../category/category-toolbar';
+import { adminpaths as paths } from '../../../routes/adminpaths';
 
 // ----------------------------------------------------------------------
 type Props = {
@@ -36,14 +42,6 @@ export function AssociateCategory({ product, onCancel }: Props) {
 
     }, [filters.state, router, product?.id]);
 
-    const onCheckCancel = () => {
-        if (onCancel) {
-            onCancel();
-        } else {
-            router.back();
-        }
-    }
-
     const onAssociate = (categoryId: string) => {
         axios.post(endpoints.admin.category.associate(`${categoryId}`, `${product?.id}`)).then(response => {
         enqueueSnackbar('Product Category association with this product', { variant: 'success'});
@@ -62,7 +60,7 @@ export function AssociateCategory({ product, onCancel }: Props) {
 
     const debouncedFilters = useDebounce<ICategoryFilters>(filters.state);
 
-    const { categorys, categorysLoading, categorysError } = useSearchCategoryChildren(
+    const { categorys, categorysLoading } = useSearchCategoryChildren(
         mapFilters(debouncedFilters)
     );
 

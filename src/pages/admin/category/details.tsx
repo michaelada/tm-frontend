@@ -4,6 +4,7 @@ import { useParams } from 'src/routes/hooks';
 
 import { CONFIG } from 'src/config-global';
 import { useGetCategory } from 'src/actions/product';
+
 import { AdminCategoryDetailsView } from 'src/sections/admin/category/details-view';
 
 // ----------------------------------------------------------------------

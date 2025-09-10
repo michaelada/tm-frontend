@@ -3,22 +3,23 @@ import { useNavigate } from 'react-router';
 
 import { Button } from '@mui/material';
 import Table from '@mui/material/Table';
+import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+
 import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
-import {
-  emptyRows,
-  TableEmptyRows,
-  TableNoData,
-  TablePaginationCustom,
-  TableSkeleton,
-  useTable,
-} from '../../../components/table';
-import { useRouter } from '../../../routes/hooks';
+
 import axios, { endpoints } from '../../../utils/axios';
+import {
+  useTable,
+  emptyRows,
+  TableNoData,
+  TableSkeleton,
+  TableEmptyRows,
+  TablePaginationCustom,
+} from '../../../components/table';
 
 import type { IProductCategory } from '../../../utils/types';
 
@@ -104,7 +105,6 @@ type ProductCategoryRow = {
 };
 
 function ProductCategoryTableRow({ row, onCategoryDissassociate }: ProductCategoryRow) {
-  const router = useRouter();
 
   const onRemove = (categoryId:number, productId:number) => {
     if(onCategoryDissassociate) {

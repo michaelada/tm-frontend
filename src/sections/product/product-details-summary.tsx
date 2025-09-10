@@ -1,34 +1,30 @@
 import type { ICheckoutItem } from 'src/types/checkout';
 
 import { useForm } from 'react-hook-form';
-import { useEffect, useCallback, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import { Chip, CircularProgress } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import LoadingButton from '@mui/lab/LoadingButton';
-import Notify from 'src/components/notify';
-
-import { paths } from 'src/routes/paths';
-import { useRouter } from 'src/routes/hooks';
+import { Chip, CircularProgress } from '@mui/material';
 
 import { fCurrency } from 'src/utils/format-number';
 
+import Notify from 'src/components/notify';
 import { Label } from 'src/components/label';
 import { Form } from 'src/components/hook-form';
 
 import { useCartContext } from '../cart/context';
 import { Iconify } from '../../components/iconify';
+import ProductQuantity from './components/quantity';
 import { useBoolean } from '../../hooks/use-boolean';
 import axios, { endpoints } from '../../utils/axios';
 import { useGetProductPrice } from '../../actions/product';
-import { IncrementerButton } from './components/incrementer-button';
 
 import type { IProduct } from '../../utils/types';
-import ProductQuantity from './components/quantity';
 
 // ----------------------------------------------------------------------
 
@@ -46,12 +42,9 @@ export function ProductDetailsSummary({
   disableActions,
   ...other
 }: Props) {
-  const router = useRouter();
   const [notify, setNotify] = useState("");
 
   const { id, name, description } = product;
-
-  const existProduct = true;
 
   const defaultValues = {
     id,
@@ -61,7 +54,7 @@ export function ProductDetailsSummary({
 
   const methods = useForm({ defaultValues });
 
-  const { reset, watch, control, setValue, handleSubmit } = methods;
+  const { reset, watch, setValue } = methods;
 
   const values = watch();
 
@@ -71,17 +64,6 @@ export function ProductDetailsSummary({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [product]);
-
-  const onSubmit = handleSubmit(async (data) => {
-    try {
-      if (!existProduct) {
-        // onAddCart?.({ ...data, colors: [values.colors], subtotal: data.price * data.quantity });
-      }
-      router.push(paths.product.checkout);
-    } catch (error) {
-      console.error(error);
-    }
-  });
 
   const cart = useCartContext();
 

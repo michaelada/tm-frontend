@@ -1,15 +1,17 @@
-import { useRouter } from 'src/routes/hooks';
-import { DashboardContent } from 'src/layouts/dashboard';
-
-import { Button, Card, Stack } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import { Card, Stack, Button } from '@mui/material';
+
+import { useRouter } from 'src/routes/hooks';
+
+import { DashboardContent } from 'src/layouts/dashboard';
 import { useGetProductImages } from 'src/actions/product';
+
 import { Iconify } from 'src/components/iconify';
+
+import { ProductImageTable } from './table/product-image-table';
 import { adminpaths as paths } from '../../../routes/adminpaths';
 
 import type { IProduct } from '../../../utils/types';
-import { ProductCategoryTable } from '../category/product-category-table';
-import { ProductImageTable } from './table/product-image-table';
 
 // ----------------------------------------------------------------------
 
@@ -22,7 +24,7 @@ export function AdminProductImages({
 }: Props) {
     const router = useRouter();
 
-    const { productImages, productImagesLoading, productImagesError } = useGetProductImages(`${product?.id}`);
+    const { productImages, productImagesLoading } = useGetProductImages(`${product?.id}`);
 
     const addImage = () => {
       router.push(paths.dashboard.product.addimage(`${product?.id}`));

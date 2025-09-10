@@ -1,10 +1,10 @@
-import { useForm } from 'react-hook-form';
 
 import Link from '@mui/material/Link';
+import { Chip, Button } from '@mui/material';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
-import { Button, Chip } from '@mui/material';
 import ListItemText from '@mui/material/ListItemText';
+
 import { fDateTime } from 'src/utils/format-time';
 
 import { paths } from '../../routes/paths';
@@ -23,14 +23,6 @@ export function OrderRow({ row }: OrderRowProps) {
   const openOrderDetail = () => {
     router.push(paths.orders.details(row.id));
   };
-
-  const defaultValues = row;
-
-  const methods = useForm({ defaultValues });
-
-  const { reset, watch, control, setValue, handleSubmit } = methods;
-
-  const values = watch();
 
   return (
     <TableRow key={row.id}>

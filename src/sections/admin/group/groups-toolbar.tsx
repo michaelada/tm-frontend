@@ -1,14 +1,7 @@
-import { useCallback } from 'react';
 
 import Stack from '@mui/material/Stack';
-import MenuItem from '@mui/material/MenuItem';
-import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
-import Select, { type SelectChangeEvent } from '@mui/material/Select';
 
 import { Iconify } from 'src/components/iconify';
 
@@ -26,26 +19,6 @@ type Props = {
 };
 
 export function GroupsToolbar({ filters, options, placeholder }: Props) {
-  const handleChangeCategory = useCallback(
-    (event: SelectChangeEvent) => {
-      const {
-        target: { value },
-      } = event;
-      filters.setState({ categoryId: value, subcategoryId: undefined });
-    },
-    [filters]
-  );
-
-  const handleChangeSubCategory = useCallback(
-    (event: SelectChangeEvent) => {
-      const {
-        target: { value },
-      } = event;
-      filters.setState({ subcategoryId: value });
-    },
-    [filters]
-  );  
-
   const renderSearch = (
     <TextField
       value={filters.state.search}

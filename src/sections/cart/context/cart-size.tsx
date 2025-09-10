@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+
 import { useCartContext } from './use-cart-context';
 
 // material
@@ -14,6 +15,7 @@ export default function CartSize() {
             <Box color="error"> ({cart.cart?.Cartitems.length})</Box>
         )
     }
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <></>;
 
 }

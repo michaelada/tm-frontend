@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { Alert, Box, Stack, Typography } from "@mui/material";
+
+import { Stack, Typography } from "@mui/material";
+
 import { validateQuantity } from "src/utils/helper";
+
 import { IncrementerButtonV2 } from "./incrementer-button-v2";
 
 type ProductQuantityProps = {

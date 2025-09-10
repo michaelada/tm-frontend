@@ -5,8 +5,8 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
 
-import { adminpaths as paths } from 'src/routes/adminpaths';
 import { RouterLink } from 'src/routes/components';
+import { adminpaths as paths } from 'src/routes/adminpaths';
 
 import { useTabs } from 'src/hooks/use-tabs';
 
@@ -15,7 +15,8 @@ import { varAlpha } from 'src/theme/styles';
 import { Iconify } from 'src/components/iconify';
 import { EmptyContent } from 'src/components/empty-content';
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
-import { IProduct } from '../../../utils/types';
+
+import type { IProduct } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 

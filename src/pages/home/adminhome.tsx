@@ -1,6 +1,9 @@
 import { Helmet } from 'react-helmet-async';
-import { Divider, Typography } from '@mui/material';
+
+import { Divider } from '@mui/material';
+
 import { DashboardContent } from 'src/layouts/dashboard';
+
 import { HomeHero } from 'src/sections/home/home-hero';
 
 // ----------------------------------------------------------------------

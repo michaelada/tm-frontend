@@ -1,13 +1,17 @@
-import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
+import { useSnackbar } from 'notistack';
+import { Helmet } from 'react-helmet-async';
+
+import { Box, Alert } from '@mui/material';
+
+import { adminpaths } from 'src/routes/adminpaths';
 import { useParams, useRouter } from 'src/routes/hooks';
+
 import axios, { endpoints } from 'src/utils/axios';
 
-import { useGetProduct } from 'src/actions/product';
-import { Confirmation } from 'src/sections/admin/shared/confirmation';
-import { useSnackbar } from 'notistack';
-import { adminpaths } from 'src/routes/adminpaths';
 import { useGetOrder } from 'src/actions/order';
+
+import { Confirmation } from 'src/sections/admin/shared/confirmation';
 
 // ----------------------------------------------------------------------
 
@@ -20,7 +24,7 @@ export default function Page() {
 
   const { id = '' } = useParams();
 
-  const { order, orderLoading, orderError } = useGetOrder(id);
+  const { order } = useGetOrder(id);
 
   const onConfirm = () => {
     axios.post(endpoints.admin.order.reissue(`${order?.id}`)).then(response => {
@@ -40,6 +44,8 @@ export default function Page() {
       </Helmet>
 
       <Confirmation title="Reissue Order" description={`Please confirm that you want to reissue the order number #${order?.orderNo} ?`} onConfirm={onConfirm} />
+      {error && <Box sx={{ m: 3 }}><Alert severity='error'>{error}</Alert></Box>}
+
     </>
   );
 }

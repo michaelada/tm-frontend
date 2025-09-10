@@ -1,18 +1,21 @@
-import { useSetState } from 'src/hooks/use-set-state';
-
 import { useEffect } from 'react';
 
 import Card from '@mui/material/Card';
+import Typography from '@mui/material/Typography';
+
 import { useRouter, useSearchParams } from 'src/routes/hooks';
+
+import { useSetState } from 'src/hooks/use-set-state';
+
 import { useSearchProduct } from 'src/actions/product';
 import { DashboardContent } from 'src/layouts/dashboard';
 
-import Typography from '@mui/material/Typography';
-import { IProductFilters } from '../../../utils/types';
+import { ProductTable } from './table/product-table';
+import { ProductToolbar } from './table/product-toolbar';
 import { useDebounce } from '../../../hooks/use-debounce';
 import { adminpaths as paths } from '../../../routes/adminpaths';
-import { ProductToolbar } from './table/product-toolbar';
-import { ProductTable } from './table/product-table';
+
+import type { IProductFilters } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 
@@ -47,14 +50,13 @@ export function AdminProductListView() {
 
   const debouncedFilters = useDebounce<IProductFilters>(filters.state);
 
-  const { products, productsLoading } = useSearchProduct(
+  const { products } = useSearchProduct(
     mapFilters(debouncedFilters)
   );
 
 
   return (
-    <>
-      <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+    <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
           Products
         </Typography>
@@ -71,6 +73,5 @@ export function AdminProductListView() {
           <ProductTable productsLoading={false} isLoading={false} products={products} assigned/>
         </Card>
       </DashboardContent>
-    </>
   );
 }

@@ -12,8 +12,8 @@ import Select, { type SelectChangeEvent } from '@mui/material/Select';
 
 import { Iconify } from 'src/components/iconify';
 
-import type { UseSetStateReturn } from '../../../../hooks/use-set-state';
 import type { IProductFilters } from '../../../../utils/types';
+import type { UseSetStateReturn } from '../../../../hooks/use-set-state';
 
 
 const statii =  ['Active', 'Inactive'];
@@ -24,12 +24,6 @@ const instock = [{ id: '1', name: 'In Stock'} , { id: '0', name: 'Out Of Stock' 
 
 type Props = {
   filters: UseSetStateReturn<IProductFilters>;
-  // options: {
-  //   status: string;
-  //   newin: string;
-  //   instock: string;
-  //   search: string;
-  // };
 };
 
 export function ProductToolbar({ filters }: Props) {

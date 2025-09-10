@@ -1,20 +1,24 @@
-import { useSetState } from 'src/hooks/use-set-state';
-
 import { useEffect } from 'react';
 
-import { Button, Stack } from '@mui/material';
 import Card from '@mui/material/Card';
-import { useSearchProductGroups } from 'src/actions/product';
-import { Iconify } from 'src/components/iconify';
-import { DashboardContent } from 'src/layouts/dashboard';
+import { Stack, Button } from '@mui/material';
+import Typography from '@mui/material/Typography';
+
 import { useRouter, useSearchParams } from 'src/routes/hooks';
 
-import Typography from '@mui/material/Typography';
-import { useDebounce } from '../../../hooks/use-debounce';
-import { adminpaths as paths } from '../../../routes/adminpaths';
-import { IProductGroupFilters } from '../../../utils/types';
+import { useSetState } from 'src/hooks/use-set-state';
+
+import { DashboardContent } from 'src/layouts/dashboard';
+import { useSearchProductGroups } from 'src/actions/product';
+
+import { Iconify } from 'src/components/iconify';
+
 import { GroupsTable } from './groups-table';
 import { GroupsToolbar } from './groups-toolbar';
+import { useDebounce } from '../../../hooks/use-debounce';
+import { adminpaths as paths } from '../../../routes/adminpaths';
+
+import type { IProductGroupFilters } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 
@@ -52,8 +56,7 @@ export function GroupListView() {
   }
 
   return (
-    <>
-      <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+    <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
           Products
         </Typography>
@@ -77,6 +80,5 @@ export function GroupListView() {
           {/* <Stack sx={{ maxWidth: 200, m: 3 }}><Button onClick={addGroup} variant="contained" color="warning">Add Group</Button></Stack> */}
         </Card>
       </DashboardContent>
-    </>
   );
 }

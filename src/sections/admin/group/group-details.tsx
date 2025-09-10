@@ -1,41 +1,44 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
+import { useSnackbar } from 'notistack';
+import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 
-import { CardContent, Divider, Link, ListItemText, Stack, Typography } from '@mui/material';
-import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
-import Container from '@mui/material/Container';
 import Table from '@mui/material/Table';
+import { LoadingButton } from '@mui/lab';
+import Button from '@mui/material/Button';
+import TableRow from '@mui/material/TableRow';
+import Container from '@mui/material/Container';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import { useSnackbar } from 'notistack';
-import { useForm } from 'react-hook-form';
-import { Form } from 'src/components/hook-form';
+import { Link, Stack, Divider, Typography, CardContent, ListItemText } from '@mui/material';
+
+import { RouterLink } from 'src/routes/components';
+import { adminpaths as paths } from 'src/routes/adminpaths';
+
 import { Image } from 'src/components/image';
+import { Form } from 'src/components/hook-form';
+import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
+import { EmptyContent } from 'src/components/empty-content';
+
 import { ProductGroupSkeleton } from 'src/sections/product/product-skeleton';
 
-
-import { adminpaths as paths } from 'src/routes/adminpaths';
-import { RouterLink } from 'src/routes/components';
-
-import { LoadingButton } from '@mui/lab';
-import { EmptyContent } from 'src/components/empty-content';
-import { Iconify } from 'src/components/iconify';
-import {
-  emptyRows,
-  TableEmptyRows,
-  TableNoData,
-  TablePaginationCustom,
-  TableSkeleton,
-  useTable,
-} from '../../../components/table';
 import { useRouter } from '../../../routes/hooks';
-import axios, { endpoints } from '../../../utils/axios';
-import { IProduct, IProductGroup } from '../../../utils/types';
 import TmTextField from '../shared/form/tm-textfield';
+import axios, { endpoints } from '../../../utils/axios';
+import {
+  useTable,
+  emptyRows,
+  TableNoData,
+  TableSkeleton,
+  TableEmptyRows,
+  TablePaginationCustom,
+} from '../../../components/table';
+
+import type { IProduct, IProductGroup } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 
@@ -55,7 +58,7 @@ export function GroupDetails({ productGroup, error, loading }: Props) {
 
   const table = useTable({ defaultRowsPerPage: 10 });
   const methods = useForm({ defaultValues: productGroup });
-  const { reset, watch, control, setValue, handleSubmit, formState } = methods;
+  const { reset, watch, handleSubmit, formState } = methods;
 
   const notFound = !productGroup && !loading;
   const values = watch();

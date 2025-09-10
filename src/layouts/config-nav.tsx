@@ -4,6 +4,7 @@ import { adminpaths } from 'src/routes/adminpaths';
 import { CONFIG } from 'src/config-global';
 
 import { SvgColor } from 'src/components/svg-color';
+
 import CartSize from 'src/sections/cart/context/cart-size';
 import FavouriteSize from 'src/sections/favourite/favourite-size';
 

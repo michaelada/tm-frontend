@@ -4,12 +4,11 @@ import type { ICheckoutDeliveryOption } from 'src/types/checkout';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
+import { Typography } from '@mui/material';
 
 import { varAlpha } from 'src/theme/styles';
 
 import { Iconify } from 'src/components/iconify';
-import { Button, Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------
 

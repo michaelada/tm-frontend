@@ -1,32 +1,34 @@
+import type { AlertColor } from '@mui/material';
+import type { IProduct } from 'src/utils/types';
+
 import { useState } from 'react';
+
+import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
 import TableRow from '@mui/material/TableRow';
 import TableHead from '@mui/material/TableHead';
 import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
-import { AlertColor } from '@mui/material';
 
 import { DashboardContent } from 'src/layouts/dashboard';
 
-import Card from '@mui/material/Card';
-import { IProduct } from 'src/utils/types';
 import Notify from 'src/components/notify';
 
 import { Scrollbar } from '../../../components/scrollbar';
 import { RenderFavouriteRow } from '../favourite-table-row';
+import { useGetFavourites } from '../../../actions/favourite';
 import {
+  useTable,
   emptyRows,
   TableEmptyRows,
   TablePaginationCustom,
-  useTable,
 } from '../../../components/table';
-import { useGetFavourites } from '../../../actions/favourite';
 
 // ----------------------------------------------------------------------
 
 export function FavouritesListView() {
-  const { productGroups, productGroupsLoading } = useGetFavourites();
+  const { productGroups } = useGetFavourites();
   const table = useTable({ defaultRowsPerPage: 10 });
   const [notify, setNotify] = useState("");
   const [alert, setAlert] = useState<AlertColor>("success");

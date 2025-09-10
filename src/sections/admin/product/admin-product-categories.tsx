@@ -1,14 +1,17 @@
-import { useRouter } from 'src/routes/hooks';
-import { DashboardContent } from 'src/layouts/dashboard';
-
-import { Button, Card, Stack } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import { Card, Stack, Button } from '@mui/material';
+
+import { useRouter } from 'src/routes/hooks';
+
+import { DashboardContent } from 'src/layouts/dashboard';
 import { useGetProductCategorys } from 'src/actions/product';
+
 import { Iconify } from 'src/components/iconify';
+
 import { adminpaths as paths } from '../../../routes/adminpaths';
+import { ProductCategoryTable } from '../category/product-category-table';
 
 import type { IProduct } from '../../../utils/types';
-import { ProductCategoryTable } from '../category/product-category-table';
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +24,7 @@ export function AdminProductCategories({
 }: Props) {
     const router = useRouter();
 
-    const { productCategorys, productCategorysLoading, productCategorysError } = useGetProductCategorys(`${product?.id}`);
+    const { productCategorys, productCategorysLoading } = useGetProductCategorys(`${product?.id}`);
 
     const addAssociaton = () => {
       router.push(paths.dashboard.product.associate(`${product?.id}`));

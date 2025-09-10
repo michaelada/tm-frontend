@@ -1,21 +1,21 @@
-import { Alert, Box, Button, Card, CardContent, Container, Stack, Typography } from '@mui/material';
+import type { IProductGroup } from 'src/utils/types';
+
 import { useState } from 'react';
+import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router';
+
+import { Box, Card, Alert, Stack, Button, Container, Typography, CardContent } from '@mui/material';
+
+import { useRouter } from 'src/routes/hooks';
+import { adminpaths as paths } from 'src/routes/adminpaths';
+
+import axios, { endpoints } from 'src/utils/axios';
+
 import { Form } from 'src/components/hook-form';
 
-import { useSnackbar } from 'notistack';
-import { useRouter } from 'src/routes/hooks';
-import axios, { endpoints } from 'src/utils/axios';
-import { IProductGroup } from 'src/utils/types';
-import { adminpaths as paths } from 'src/routes/adminpaths';
 import { TmFileUpload } from '../shared/form/tm-fileupload';
 
 // ----------------------------------------------------------------------
-type ProductImage = {
-    image: string;
-}
-
 
 type Props = {
     productGroup?: IProductGroup;
@@ -27,14 +27,11 @@ export function AddProductGroupImage({ productGroup, onCancel }: Props) {
     const { enqueueSnackbar } = useSnackbar();
     const [error, setError] = useState('');
     const [files, setFiles] = useState<FileList>();
-    const navigate = useNavigate();
 
     const defautValues = () => ({ 'image': '' });
 
     const methods = useForm({ defaultValues: defautValues() });
-    const { reset, watch, control, setValue, handleSubmit, formState } = methods;
-
-    const values = watch();
+    const { handleSubmit } = methods;
 
     const onCheckCancel = () => {
         if (onCancel) {

@@ -1,27 +1,29 @@
-import { useSetState } from 'src/hooks/use-set-state';
-
 import { useEffect } from 'react';
 
 import Card from '@mui/material/Card';
-import { useParams, useRouter, useSearchParams } from 'src/routes/hooks';
-import { useSearchProductGroups } from 'src/actions/product';
-import { DashboardContent } from 'src/layouts/dashboard';
-
 import Typography from '@mui/material/Typography';
-import { IProductGroupFilters } from '../../../utils/types';
-import { CollapsibleProductGroupTable } from '../table/product-groups-table';
-import { ProductGroupsToolbar } from '../table/product-groups-toolbar';
-import { useGetCategories } from '../../../actions/category';
-import { useGetBrands } from '../../../actions/brand';
-import { useDebounce } from '../../../hooks/use-debounce';
+
+import { useRouter, useSearchParams } from 'src/routes/hooks';
+
+import { useSetState } from 'src/hooks/use-set-state';
+
+import { DashboardContent } from 'src/layouts/dashboard';
+import { useSearchProductGroups } from 'src/actions/product';
+
 import { paths } from '../../../routes/paths';
+import { useDebounce } from '../../../hooks/use-debounce';
+import { useGetCategories } from '../../../actions/category';
+import { ProductGroupsToolbar } from '../table/product-groups-toolbar';
+import { CollapsibleProductGroupTable } from '../table/product-groups-table';
+
+import type { IProductGroupFilters } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 
 export function ProductListView() {
   const router = useRouter();
 
-  const { categories, categoriesLoading } = useGetCategories();
+  const { categories } = useGetCategories();
 
   const searchParams = useSearchParams();
   const filters = useSetState<IProductGroupFilters>({
@@ -56,8 +58,7 @@ export function ProductListView() {
 
 
   return (
-    <>
-      <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+    <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
           Products
         </Typography>
@@ -78,6 +79,5 @@ export function ProductListView() {
           />
         </Card>
       </DashboardContent>
-    </>
   );
 }

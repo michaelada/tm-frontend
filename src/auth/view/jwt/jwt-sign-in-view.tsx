@@ -21,7 +21,7 @@ import { Form, Field } from 'src/components/hook-form';
 
 import { useAuthContext } from '../../hooks';
 import { FormHead } from '../../components/form-head';
-import { USER_KEY, signInWithPassword } from '../../context/jwt';
+import { signInWithPassword } from '../../context/jwt';
 // ----------------------------------------------------------------------
 
 export type SignInSchemaType = zod.infer<typeof SignInSchema>;
@@ -41,7 +41,7 @@ export const SignInSchema = zod.object({
 export function JwtSignInView() {
   const router = useRouter();
 
-  const { checkUserSession, user } = useAuthContext();
+  const { checkUserSession } = useAuthContext();
 
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -68,15 +68,7 @@ export function JwtSignInView() {
       await signInWithPassword({ username: data.username, password: data.password });
       await checkUserSession?.();
 
-      const userJson = localStorage.getItem(USER_KEY);
       const path = "/";
-      if(userJson) {
-        const u = JSON.parse(userJson);
-        // if(u.isAdmin) {
-        //   path = "/admin";
-        // }
-      }
-
       router.replace(path);
       router.refresh();
     } catch (error) {

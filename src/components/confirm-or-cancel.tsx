@@ -1,5 +1,6 @@
+import { Box, Button } from "@mui/material";
+
 import { useRouter } from "src/routes/hooks";
-import { Button, Box } from "@mui/material";
 
 type ConfirmOrCancelProps = {
     onConfirm: Function,

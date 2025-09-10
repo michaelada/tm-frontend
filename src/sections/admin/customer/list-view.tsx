@@ -1,21 +1,24 @@
-import { useSetState } from 'src/hooks/use-set-state';
-
-import { useSnackbar } from 'notistack';
 import { useEffect } from 'react';
+import { useSnackbar } from 'notistack';
 import { useNavigate } from 'react-router';
 
 import Card from '@mui/material/Card';
-import { useSearchCustomer } from 'src/actions/product';
-import { DashboardContent } from 'src/layouts/dashboard';
+import Typography from '@mui/material/Typography';
+
 import { useRouter, useSearchParams } from 'src/routes/hooks';
 
-import Typography from '@mui/material/Typography';
-import { useDebounce } from '../../../hooks/use-debounce';
-import { adminpaths as paths } from '../../../routes/adminpaths';
-import axios, { endpoints } from '../../../utils/axios';
-import { ICustomerFilters } from '../../../utils/types';
+import { useSetState } from 'src/hooks/use-set-state';
+
+import { useSearchCustomer } from 'src/actions/product';
+import { DashboardContent } from 'src/layouts/dashboard';
+
 import { CustomerTable } from './customer-table';
 import { CustomerToolbar } from './customer-toolbar';
+import axios, { endpoints } from '../../../utils/axios';
+import { useDebounce } from '../../../hooks/use-debounce';
+import { adminpaths as paths } from '../../../routes/adminpaths';
+
+import type { ICustomerFilters } from '../../../utils/types';
 // import { CategoryToolbar } from './category-toolbar';
 // import { CustomerTable } from './customer-table';
 
@@ -71,8 +74,7 @@ export function CustomerListView() {
   }
 
   return (
-    <>
-      <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+    <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
           Customers
         </Typography>
@@ -89,6 +91,5 @@ export function CustomerListView() {
           <CustomerTable customersLoading={customersLoading} isLoading={customersLoading} customers={customers} onStatusChange={onStatusChange} />
         </Card>
       </DashboardContent>
-    </>
   );
 }

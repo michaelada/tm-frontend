@@ -1,31 +1,33 @@
-import { SetStateAction, useEffect, useState } from 'react';
+import type { SetStateAction} from 'react';
+import type { IOrder } from 'src/utils/types';
 
+import { useState, useEffect } from 'react';
+
+import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import { Alert, Button, CardHeader, Tab, Tabs, useTheme } from '@mui/material';
-import Card from '@mui/material/Card';
+import { Tab, Tabs, Alert, CardHeader } from '@mui/material';
 
 import { DashboardContent } from 'src/layouts/dashboard';
-import { IOrder } from 'src/utils/types';
-import { LoadingScreen } from 'src/components/loading-screen';
 
 import { Label } from 'src/components/label/label';
+import { LoadingScreen } from 'src/components/loading-screen';
 
-import { Scrollbar } from '../../../components/scrollbar';
 import { OrderRow } from '../order-table-row';
-import { LabelColor } from '../../../components/label/types';
-
+import OrderTableToolbar from '../order-table-toolbar';
+import axios, { endpoints } from '../../../utils/axios';
+import { Scrollbar } from '../../../components/scrollbar';
 import {
+  useTable,
   emptyRows,
+  TableNoData,
   getComparator,
   TableEmptyRows,
   TableHeadCustom,
-  TableNoData,
   TablePaginationCustom,
-  useTable,
 } from '../../../components/table';
-import axios, { endpoints } from '../../../utils/axios';
-import OrderTableToolbar from '../order-table-toolbar';
+
+import type { LabelColor } from '../../../components/label/types';
 
 const TABLE_HEAD = [
   { id: 'id', label: 'Order', align: 'left' },
@@ -48,7 +50,6 @@ export function OrdersListView() {
   const [loading, setLoading] = useState(true);
   const [filterName, setFilterName] = useState('');
   const [filterStatus, setFilterStatus] = useState('all');
-  const theme = useTheme();
 
   const {
     dense,

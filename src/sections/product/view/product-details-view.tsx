@@ -4,7 +4,6 @@ import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
-import { Box } from '@mui/material';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
@@ -16,13 +15,15 @@ import { varAlpha } from 'src/theme/styles';
 import { Iconify } from 'src/components/iconify';
 import { EmptyContent } from 'src/components/empty-content';
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
+
 import { ProductDetailsSkeleton } from '../product-skeleton';
-import { ProductDetailsCarousel } from '../product-details-carousel';
-import { ProductDetailsDescription } from '../product-details-description';
-import { IProduct } from '../../../utils/types';
 import { ProductDetailsSummary } from '../product-details-summary';
 import { ProductDetailsContent } from '../product-details-content';
 import { ProductDownloadImages } from '../product-download-images';
+import { ProductDetailsCarousel } from '../product-details-carousel';
+import { ProductDetailsDescription } from '../product-details-description';
+
+import type { IProduct } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 

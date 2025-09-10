@@ -1,18 +1,20 @@
-import { useSetState } from 'src/hooks/use-set-state';
-
 import { useEffect } from 'react';
 
 import Card from '@mui/material/Card';
+import { Typography} from '@mui/material';
+
 import { useRouter, useSearchParams } from 'src/routes/hooks';
+
+import { useSetState } from 'src/hooks/use-set-state';
+
 import { useSearchCategory } from 'src/actions/product';
 import { DashboardContent } from 'src/layouts/dashboard';
 
-import { Typography, Button} from '@mui/material';
-import { ICategoryFilters } from '../../../utils/types';
+import { CategoryTable } from './category-table';
 import { useDebounce } from '../../../hooks/use-debounce';
 import { adminpaths as paths } from '../../../routes/adminpaths';
-import { CategoryTable } from './category-table';
-import { CategoryToolbar } from './category-toolbar';
+
+import type { ICategoryFilters } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 
@@ -47,8 +49,7 @@ export function CategoryListView() {
 
 
   return (
-    <>
-      <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+    <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
           Top Level Categories
         </Typography>
@@ -67,6 +68,5 @@ export function CategoryListView() {
         </Card>
         
       </DashboardContent>
-    </>
   );
 }

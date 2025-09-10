@@ -4,7 +4,8 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Drawer, { drawerClasses } from '@mui/material/Drawer';
-import { useColorScheme, useTheme } from '@mui/material/styles';
+import { useTheme, useColorScheme } from '@mui/material/styles';
+
 import { paper, varAlpha } from 'src/theme/styles';
 
 import { Iconify } from '../../iconify';
@@ -18,12 +19,8 @@ import type { SettingsDrawerProps } from '../types';
 
 export function SettingsDrawer({
   sx,
-  hideFont,
   hideCompact,
-  hidePresets,
-  hideNavColor,
   hideContrast,
-  hideNavLayout,
   hideDirection,
   hideColorScheme,
 }: SettingsDrawerProps) {

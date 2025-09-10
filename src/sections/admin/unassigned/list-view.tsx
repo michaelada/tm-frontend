@@ -1,18 +1,20 @@
-import { useSetState } from 'src/hooks/use-set-state';
-
 import { useEffect } from 'react';
 
 import Card from '@mui/material/Card';
+import Typography from '@mui/material/Typography';
+
 import { useRouter, useSearchParams } from 'src/routes/hooks';
+
+import { useSetState } from 'src/hooks/use-set-state';
+
 import { useSearchProduct } from 'src/actions/product';
 import { DashboardContent } from 'src/layouts/dashboard';
 
-import Typography from '@mui/material/Typography';
-import { IProductFilters } from '../../../utils/types';
 import { useDebounce } from '../../../hooks/use-debounce';
-import { adminpaths as paths } from '../../../routes/adminpaths';
-import { ProductToolbar } from '../product/table/product-toolbar';
 import { ProductTable } from '../product/table/product-table';
+import { adminpaths as paths } from '../../../routes/adminpaths';
+
+import type { IProductFilters } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 
@@ -48,8 +50,7 @@ export function UnassignedListView() {
 
 
   return (
-    <>
-      <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+    <DashboardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
           Unassigned Products
         </Typography>
@@ -65,6 +66,5 @@ export function UnassignedListView() {
           <ProductTable productsLoading={productsLoading} isLoading={false} products={products} assigned={false}/>
         </Card>
       </DashboardContent>
-    </>
   );
 }

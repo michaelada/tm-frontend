@@ -1,13 +1,13 @@
-import { Helmet } from 'react-helmet-async';
-import { useParams, useRouter } from 'src/routes/hooks';
 import { useState } from 'react';
+import { useSnackbar } from 'notistack';
+import { Helmet } from 'react-helmet-async';
+
+import { Box, Alert } from '@mui/material';
+
+import { useRouter } from 'src/routes/hooks';
+
 import axios, { endpoints } from 'src/utils/axios';
 
-import { AssociateCategory } from 'src/sections/admin/shared/associate-category';
-import { useSnackbar } from 'notistack';
-import { Alert, Box, Typography } from '@mui/material';
-import { adminpaths } from 'src/routes/adminpaths';
-import { useGetProduct } from 'src/actions/favourite';
 import { AddGroup } from 'src/sections/admin/group/add-group';
 
 // ----------------------------------------------------------------------

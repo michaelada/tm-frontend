@@ -1,14 +1,15 @@
 import type { NavSectionProps } from 'src/components/nav-section';
-import type { Breakpoint, SxProps, Theme } from '@mui/material/styles';
-import { useTheme } from '@mui/material/styles';
+import type { Theme, SxProps, Breakpoint } from '@mui/material/styles';
 
 import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
+import { useTheme } from '@mui/material/styles';
 import { iconButtonClasses } from '@mui/material/IconButton';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 
 import { useSettingsContext } from 'src/components/settings';
+
 import { useAuthContext } from 'src/auth/hooks';
 
 import { Main } from './main';
@@ -23,7 +24,7 @@ import { HeaderSection } from '../core/header-section';
 import { StyledDivider, useNavColorVars } from './styles';
 import { AccountDrawer } from '../components/account-drawer';
 import { SettingsButton } from '../components/settings-button';
-import { navData as dashboardNavData, adminNavData } from '../config-nav';
+import { adminNavData, navData as dashboardNavData } from '../config-nav';
 // import { adminNavData as dashboardNavData } from '../config-nav';
 
 // ----------------------------------------------------------------------

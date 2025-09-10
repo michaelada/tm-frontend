@@ -13,7 +13,7 @@ import Select, { type SelectChangeEvent } from '@mui/material/Select';
 import { Iconify } from 'src/components/iconify';
 
 import type { UseSetStateReturn } from '../../../hooks/use-set-state';
-import type { IBrand, ICategory, IProductGroupFilters } from '../../../utils/types';
+import type { ICategory, IProductGroupFilters } from '../../../utils/types';
 
 
 // ----------------------------------------------------------------------

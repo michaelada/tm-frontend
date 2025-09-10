@@ -1,12 +1,10 @@
+import type { ICategory } from 'src/utils/types';
+
 import { useState } from 'react';
-import { useSnackbar } from 'notistack';
-import { useNavigate } from 'react-router';
 
-import { TextField, Stack, Alert, Container, Card, CardContent, Typography } from '@mui/material';
+import { Card, Stack, Alert, TextField, Container, Typography, CardContent } from '@mui/material';
 
-import { useRouter } from 'src/routes/hooks';
 import { ConfirmOrCancel } from 'src/components/confirm-or-cancel';
-import { ICategory } from 'src/utils/types';
 
 
 

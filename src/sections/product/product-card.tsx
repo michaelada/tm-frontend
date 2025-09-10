@@ -1,29 +1,31 @@
-import { useForm } from 'react-hook-form';
+import type { AlertColor} from '@mui/material';
+
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
-import { AlertColor, CircularProgress } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
 
 import { fCurrency } from 'src/utils/format-number';
-
-import { Image } from 'src/components/image';
-import { Iconify } from 'src/components/iconify';
-import Notify from 'src/components/notify';
 import { validateQuantity } from 'src/utils/helper';
 
+import Notify from 'src/components/notify';
+import { Image } from 'src/components/image';
+import { Iconify } from 'src/components/iconify';
+
 import { useCartContext } from '../cart/context';
+import ProductQuantity from './components/quantity';
 import { useBoolean } from '../../hooks/use-boolean';
 import { useGetProductPrice } from '../../actions/product';
 
 import type { IProduct } from '../../utils/types';
-import ProductQuantity from './components/quantity';
 
 // ----------------------------------------------------------------------
 
@@ -32,7 +34,7 @@ type Props = {
 };
 
 export function ProductCard({ product }: Props) {
-  const { id, name, description } = product;
+  const { id, name } = product;
   const [notify, setNotify] = useState("");
   const [alert, setAlert] = useState<AlertColor>("success");
 
@@ -48,7 +50,7 @@ export function ProductCard({ product }: Props) {
 
   const methods = useForm({ defaultValues });
 
-  const { reset, watch, control, setValue, handleSubmit } = methods;
+  const { watch, setValue } = methods;
 
   const values = watch();
 
@@ -60,8 +62,6 @@ export function ProductCard({ product }: Props) {
     }
     return '/assets/icons/empty/ic-folder-empty.svg';
   };
-
-  const minQuantity = product.minQuantity || 1;
 
   const cart = useCartContext()
 

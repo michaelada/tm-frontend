@@ -1,11 +1,12 @@
 
 import { useEffect } from 'react';
-import { CONFIG } from 'src/config-global';
 
 import Box from '@mui/material/Box';
 
+import { CONFIG } from 'src/config-global';
+
 import { Image } from 'src/components/image';
-import { Lightbox, useLightBox } from 'src/components/lightbox';
+import { useLightBox } from 'src/components/lightbox';
 import {
   Carousel,
   useCarousel,
@@ -13,7 +14,8 @@ import {
   CarouselThumbs,
   CarouselArrowNumberButtons,
 } from 'src/components/carousel';
-import { IProductGroup, IProductImage } from '../../utils/types';
+
+import type { IProductImage } from '../../utils/types';
 
 // ----------------------------------------------------------------------
 // ${CONFIG.assetsDir}/assets/product/noproductimage.png
@@ -41,7 +43,6 @@ export function ProductDetailsCarousel({ images }: Props) {
   }, [carousel.mainApi, lightbox.open, lightbox.selected]);
 
   return (
-    <>
       <div>
         <Box sx={{ mb: 2.5, position: 'relative' }}>
           <CarouselArrowNumberButtons
@@ -82,15 +83,6 @@ export function ProductDetailsCarousel({ images }: Props) {
             />
           ))}
         </CarouselThumbs>
-      </div>
-
-      {/* <Lightbox
-        index={lightbox.selected}
-        slides={slides}
-        open={lightbox.open}
-        close={lightbox.onClose}
-        onGetCurrentIndex={(index) => lightbox.setSelected(index)}
-      /> */}
-    </>
+      </div>  
   );
 }

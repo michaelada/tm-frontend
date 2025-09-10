@@ -1,22 +1,24 @@
+
 import { Button } from '@mui/material';
 import Table from '@mui/material/Table';
+import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import { useSnackbar } from 'notistack';
+
 import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
-import {
-  emptyRows,
-  TableEmptyRows,
-  TableNoData,
-  TablePaginationCustom,
-  TableSkeleton,
-  useTable,
-} from '../../../components/table';
-import { adminpaths as paths } from '../../../routes/adminpaths';
+
 import { useRouter } from '../../../routes/hooks';
+import { adminpaths as paths } from '../../../routes/adminpaths';
+import {
+  useTable,
+  emptyRows,
+  TableNoData,
+  TableSkeleton,
+  TableEmptyRows,
+  TablePaginationCustom,
+} from '../../../components/table';
 
 import type { ICategory } from '../../../utils/types';
 
@@ -38,7 +40,6 @@ export function CategoryTable({
   onAssociate
 }: CategoryTableProps) {
   const table = useTable({ defaultRowsPerPage: 10 });
-  const { enqueueSnackbar } = useSnackbar();
 
   const notFound = !categorys?.length && !categorysLoading;
 

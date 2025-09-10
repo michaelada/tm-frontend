@@ -1,12 +1,8 @@
 import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { CardContent, CardActionArea, CardMedia } from '@mui/material';
+import { CardMedia, CardContent, CardActionArea } from '@mui/material';
 
 import { Image } from 'src/components/image';
-
-import { paths } from '../../routes/paths';
-import { useRouter } from '../../routes/hooks';
 
 import type { ICategory } from '../../utils/types';
 
@@ -18,14 +14,8 @@ type Props = {
 };
 
 export function CategoryCard({ category, setSelectedCategory }: Props) {
-  const router = useRouter();
-  const { id, name, image } = category;
+  const { name, image } = category;
 
-  const linkTo = `${paths.product.root}?categoryId=${id}`;
-
-  const goToCategory = () => {
-    router.push(linkTo);
-  };
 
   const selectCategory = () => {
     setSelectedCategory(category)

@@ -1,20 +1,25 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'src/routes/hooks';
-import { Box, Button } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import { DashboardContent } from 'src/layouts/dashboard';
-import { Iconify } from 'src/components/iconify';
-import { IDeliveryAddress } from 'src/utils/types/user.interface';
+import type { IDeliveryAddress } from 'src/utils/types/user.interface';
 
+import { useState, useEffect } from 'react';
+
+import Typography from '@mui/material/Typography';
+import { Box, Alert, Button } from '@mui/material';
+
+import { useRouter } from 'src/routes/hooks';
 import { formatAddress } from 'src/routes/utils';
-import { useCartContext } from '../../cart/context';
-import { CheckoutCart } from '../checkout-cart';
-import { CheckoutOrderComplete } from '../checkout-order-complete';
+
+import { DashboardContent } from 'src/layouts/dashboard';
+
+import { Iconify } from 'src/components/iconify';
+
 import { paths } from '../../../routes/paths';
+import { CheckoutCart } from '../checkout-cart';
+import { CheckoutSteps } from '../checkout-steps';
+import { useCartContext } from '../../cart/context';
 import axios, { endpoints } from '../../../utils/axios';
 import { CheckoutDelivery } from '../checkout-delivery';
-import { CheckoutSteps } from '../checkout-steps';
 import { CheckoutConfirmOrder } from '../checkout-confirm-order';
+import { CheckoutOrderComplete } from '../checkout-order-complete';
 
 
 // ----------------------------------------------------------------------
@@ -152,6 +157,7 @@ export function CartView() {
                 </Button>
                 }
                 </Box>
+                 {error && <Box sx={{ m: 3 }}><Alert severity='error'>{error}</Alert></Box>}
     </DashboardContent>
   );
 }

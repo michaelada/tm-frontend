@@ -1,8 +1,8 @@
-import { Box, Button, Grid, Stack } from '@mui/material';
-import { IProduct } from 'src/utils/types';
-import { Iconify } from 'src/components/iconify';
+import type { IProduct } from 'src/utils/types';
+
+import { Stack } from '@mui/material';
+
 import Field from '../shared/field';
-import { ProductDownloadImages } from './product-download-images';
 
 // ----------------------------------------------------------------------
 

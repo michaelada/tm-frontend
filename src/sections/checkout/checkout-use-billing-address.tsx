@@ -1,8 +1,9 @@
 import type { CardProps } from '@mui/material/Card';
-import { IDeliveryAddress } from 'src/utils/types/user.interface';
+import type { IDeliveryAddress } from 'src/utils/types/user.interface';
 
 import Card from '@mui/material/Card';
 import { Typography } from '@mui/material';
+
 import { formatAddress } from 'src/routes/utils';
 
 // ----------------------------------------------------------------------

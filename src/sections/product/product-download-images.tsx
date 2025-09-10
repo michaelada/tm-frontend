@@ -1,7 +1,10 @@
-import { Box, Button, ImageList, ImageListItem, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import type { IProduct } from "src/utils/types";
+
 import { Link } from "react-router-dom";
-import { emptyRows, TableEmptyRows, useTable } from "src/components/table";
-import { IProduct } from "src/utils/types";
+
+import { Box, Paper, Table, TableRow, TableBody, TableCell, TableHead, TableContainer } from "@mui/material";
+
+import { useTable, emptyRows, TableEmptyRows } from "src/components/table";
 
 type Props = {
     product?: IProduct;
@@ -20,12 +23,10 @@ export function ProductDownloadImages({ product }: Props) {
 
     if (!product || !product.product_images) {
         return (
+            // eslint-disable-next-line react/jsx-no-useless-fragment
             <></>
         )
-    }
-    function downloadImage(): void {
-        console.log("Download image");
-    }
+    }   
 
     return (
         <Box sx={{p:2}}>

@@ -1,9 +1,8 @@
-import { Stack, InputAdornment, TextField, MenuItem, Button, Box, Icon } from '@mui/material';
+import { Stack, Button, TextField, InputAdornment } from '@mui/material';
+
 import { Iconify } from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
-
-const INPUT_WIDTH = 160;
 
 type OrderTableToolbarProps = {
   isFiltered: boolean,

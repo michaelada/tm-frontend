@@ -7,7 +7,8 @@ import { Scrollbar } from 'src/components/scrollbar';
 import { TableHeadCustom } from 'src/components/table';
 
 import { CheckoutCartProduct } from './checkout-cart-product';
-import { ICartItem } from '../../utils/types';
+
+import type { ICartItem } from '../../utils/types';
 
 // ----------------------------------------------------------------------
 

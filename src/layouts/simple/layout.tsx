@@ -1,11 +1,11 @@
-import type { Breakpoint, SxProps, Theme } from '@mui/material/styles';
+import type { Theme, SxProps, Breakpoint } from '@mui/material/styles';
 
 import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
 
 import { Logo } from 'src/components/logo';
 
-import { CompactContent, Main } from './main';
+import { Main, CompactContent } from './main';
 import { LayoutSection } from '../core/layout-section';
 import { HeaderSection } from '../core/header-section';
 import { SettingsButton } from '../components/settings-button';

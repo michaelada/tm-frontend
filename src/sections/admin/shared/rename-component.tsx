@@ -1,10 +1,13 @@
-import { Button, Card, CardActions, CardContent, Container, Divider, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Form } from 'src/components/hook-form';
 
-import { Iconify } from 'src/components/iconify';
+import { Box, Card, Stack, Alert, Button, Divider, Container, Typography, CardActions, CardContent } from '@mui/material';
+
 import { useRouter } from 'src/routes/hooks';
+
+import { Form } from 'src/components/hook-form';
+import { Iconify } from 'src/components/iconify';
+
 import TmTextField from './form/tm-textfield';
 
 // ----------------------------------------------------------------------
@@ -22,7 +25,7 @@ export function RenameComponent({ title, name, onChange, description, onCancel, 
     const [error, setError] = useState('');
     const router = useRouter();
     const methods = useForm({ defaultValues: { name } });
-    const { reset, watch, control, setValue, handleSubmit, formState } = methods;
+    const { watch, handleSubmit, formState } = methods;
     const values = watch();
 
     const onCheckCancel = () => {
@@ -85,6 +88,7 @@ export function RenameComponent({ title, name, onChange, description, onCancel, 
                     </CardActions>
                 </CardContent>
             </Card>
+             {error && <Box sx={{ m: 3 }}><Alert severity='error'>{error}</Alert></Box>}
         </Container>
     );
 }

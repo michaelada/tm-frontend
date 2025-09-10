@@ -1,22 +1,22 @@
-import { useForm } from 'react-hook-form';
-import { useEffect, useState } from 'react';
 import { useSnackbar } from 'notistack';
+import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
+import { useState, useEffect } from 'react';
 
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
-import { Alert, Button, Grid } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
+import { Grid, Alert, Button } from '@mui/material';
 
 import { Form } from 'src/components/hook-form';
 
-import axios, { endpoints } from '../../../utils/axios';
-
-import type { IProduct } from '../../../utils/types';
-import TmTextField from '../shared/form/tm-textfield';
 import TmSwitch from '../shared/form/tm-switch';
+import TmTextField from '../shared/form/tm-textfield';
+import axios, { endpoints } from '../../../utils/axios';
 import TmNumberField from '../shared/form/tm-numberfield';
 import TmAsyncAutocomplete from '../shared/form/tm-async-autocomplete';
+
+import type { IProduct } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ export function AdminProductDetails({
 
     const methods = useForm({ defaultValues: product });
 
-    const { reset, watch, control, setValue, handleSubmit, formState } = methods;
+    const { reset, watch, handleSubmit, formState } = methods;
 
     const values = watch();
 

@@ -1,37 +1,21 @@
-import { useCallback } from 'react';
+
+import type { IProductFilters } from 'src/utils/types';
+import type { UseSetStateReturn } from 'src/hooks/use-set-state';
 
 import Stack from '@mui/material/Stack';
-import MenuItem from '@mui/material/MenuItem';
-import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
-import Select, { type SelectChangeEvent } from '@mui/material/Select';
 
 import { Iconify } from 'src/components/iconify';
-import { IProductFilters } from 'src/utils/types';
-import { UseSetStateReturn } from 'src/hooks/use-set-state';
 
 // import type { UseSetStateReturn } from '../../../../hooks/use-set-state';
 // import type { IProductFilters } from '../../../../utils/types';
 
 
-const statii =  ['Active', 'Inactive'];
-const newin = [{ id: '0', name: 'All' }, { id: '1', name: 'New In' }];
-const instock = [{ id: '1', name: 'In Stock'} , { id: '0', name: 'Out Of Stock' }];
-
 // ----------------------------------------------------------------------
 
 type Props = {
   filters: UseSetStateReturn<IProductFilters>;
-  // options: {
-  //   status: string;
-  //   newin: string;
-  //   instock: string;
-  //   search: string;
-  // };
 };
 
 export function CategoryToolbar({ filters }: Props) {

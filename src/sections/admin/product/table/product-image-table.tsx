@@ -1,17 +1,18 @@
 import { useSnackbar } from 'notistack';
 import { useNavigate } from 'react-router';
 
-import { Button, Link, ListItemText } from '@mui/material';
+import { Button } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableRow from '@mui/material/TableRow';
 import TableHead from '@mui/material/TableHead';
 import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
-import { Scrollbar } from 'src/components/scrollbar';
-import { Iconify } from 'src/components/iconify';
-import { Image } from 'src/components/image';
 
-import { useRouter } from '../../../../routes/hooks';
+import { Image } from 'src/components/image';
+import { Iconify } from 'src/components/iconify';
+import { Scrollbar } from 'src/components/scrollbar';
+
+import axios, { endpoints } from '../../../../utils/axios';
 import {
   useTable,
   emptyRows,
@@ -20,7 +21,6 @@ import {
   TableEmptyRows,
   TablePaginationCustom,
 } from '../../../../components/table';
-import axios, { endpoints } from '../../../../utils/axios';
 
 import type { IProductImage } from '../../../../utils/types';
 

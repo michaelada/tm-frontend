@@ -1,9 +1,10 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 // form
-import { useFormContext, Controller } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
+
 // @mui
-import { Switch, FormControlLabel, FormHelperText } from '@mui/material';
+import { Switch, FormHelperText, FormControlLabel } from '@mui/material';
 
 // ----------------------------------------------------------------------
 

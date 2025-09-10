@@ -2,17 +2,16 @@ import type { ICheckoutState, CartContextValue } from 'src/types/checkout';
 
 import { useMemo, Suspense, useEffect, useCallback, createContext } from 'react';
 
-import { useRouter, useSearchParams } from 'src/routes/hooks';
+import { useSearchParams } from 'src/routes/hooks';
+
 import { getStorage, useLocalStorage } from 'src/hooks/use-local-storage';
 
 import { PRODUCT_CHECKOUT_STEPS } from 'src/_mock/_product';
 
 import { SplashScreen } from 'src/components/loading-screen';
 
-import { paths } from 'src/routes/paths';
-
 import { useGetCart } from '../../../actions/cart';
-import { addToCart, removeFromCart, setQuantity } from './action';
+import { addToCart, setQuantity, removeFromCart } from './action';
 
 import type { IProduct, ICartItem } from '../../../utils/types';
 
@@ -54,9 +53,8 @@ export function CartProvider({ children }: Props) {
 // ----------------------------------------------------------------------
 
 function Container({ children }: Props) {
-  const router = useRouter();
 
-  const { cart, cartLoading } = useGetCart();
+  const { cart } = useGetCart();
 
   const searchParams = useSearchParams();
 

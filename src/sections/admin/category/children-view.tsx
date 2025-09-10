@@ -1,20 +1,21 @@
-import { useRouter } from 'src/routes/hooks';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import { Stack, Typography } from '@mui/material';
 
-import { adminpaths as paths } from 'src/routes/adminpaths';
+import { useRouter } from 'src/routes/hooks';
 import { RouterLink } from 'src/routes/components';
+import { adminpaths as paths } from 'src/routes/adminpaths';
 
-import { useTabs } from 'src/hooks/use-tabs';
+import { DashboardContent } from 'src/layouts/dashboard';
 
 import { Iconify } from 'src/components/iconify';
 import { EmptyContent } from 'src/components/empty-content';
-import { DashboardContent } from 'src/layouts/dashboard';
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
-import { ICategory } from '../../../utils/types';
+
 import { CategoryTable } from './category-table';
+
+import type { ICategory } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 
@@ -25,7 +26,6 @@ type Props = {
 };
 
 export function CategoryChildrensView({ category, error, loading }: Props) {
-  const tabs = useTabs('description');
     const router = useRouter();
 
   if (loading) {

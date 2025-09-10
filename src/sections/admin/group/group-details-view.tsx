@@ -1,21 +1,19 @@
 
-import { Link, ListItemText } from '@mui/material';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import TableCell from '@mui/material/TableCell';
-import TableRow from '@mui/material/TableRow';
+
+import { RouterLink } from 'src/routes/components';
+import { adminpaths as paths } from 'src/routes/adminpaths';
+
+import { Iconify } from 'src/components/iconify';
+import { EmptyContent } from 'src/components/empty-content';
+import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
+
 import { ProductGroupSkeleton } from 'src/sections/product/product-skeleton';
 
-
-import { adminpaths as paths } from 'src/routes/adminpaths';
-import { RouterLink } from 'src/routes/components';
-
-import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
-import { EmptyContent } from 'src/components/empty-content';
-import { Iconify } from 'src/components/iconify';
-import { useRouter } from '../../../routes/hooks';
-import { IProduct, IProductGroup } from '../../../utils/types';
 import { GroupDetails } from './group-details';
+
+import type { IProductGroup } from '../../../utils/types';
 
 // ----------------------------------------------------------------------
 

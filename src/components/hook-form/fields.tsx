@@ -1,5 +1,5 @@
+import { RHFSelect } from './rhf-select';
 import { RHFTextField } from './rhf-text-field';
-import { RHFSelect, RHFMultiSelect } from './rhf-select';
 
 // ----------------------------------------------------------------------
 

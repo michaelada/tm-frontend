@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
@@ -8,16 +7,16 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { Link, ListItemText } from '@mui/material';
 
+import { paths } from 'src/routes/paths';
 
 import { fCurrency } from 'src/utils/format-number';
+
 import { Iconify } from 'src/components/iconify';
-import { paths } from 'src/routes/paths';
+
 import { useRouter } from '../../routes/hooks';
-
-
-
 import { IncrementerButton } from '../product/components/incrementer-button';
-import { ICartItem } from '../../utils/types';
+
+import type { ICartItem } from '../../utils/types';
 
 // ----------------------------------------------------------------------
 

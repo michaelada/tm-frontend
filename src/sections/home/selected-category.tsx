@@ -2,17 +2,14 @@ import React from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { CardContent, CardActionArea, Grid, Stack } from '@mui/material';
-
-import { Image } from 'src/components/image';
+import { Grid, Stack, CardContent, CardActionArea } from '@mui/material';
 
 import { paths } from '../../routes/paths';
 import { useRouter } from '../../routes/hooks';
+import { SubCategoryCard } from './sub-category-card';
 
 import type { ICategory } from '../../utils/types';
-import { SubCategoryCard } from './sub-category-card';
 
 type Props = {
   category: ICategory;
@@ -23,7 +20,7 @@ type Props = {
 
 export function SelectedCategory({ category, setSelectedCategory }: Props) {
   const router = useRouter();
-  const { id, name, image } = category;
+  const { id } = category;
 
   const linkTo = (scId: number) => `${paths.product.root}?categoryId=${id}&subcategoryId=${scId}`;
 
@@ -33,8 +30,6 @@ export function SelectedCategory({ category, setSelectedCategory }: Props) {
 
   const getName = (cat: ICategory) => cat.name?.replace("&amp;", "&");
 
-
-  const renderImg = <Image alt={name} src={image} ratio="1/1" sx={{ borderRadius: 1.5 }} />;
 
   return (
     <Grid container
